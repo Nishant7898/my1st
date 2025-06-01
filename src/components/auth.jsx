@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./login.css";
-import Signup from "./Signup";
+import Signup from "./signup";
 
 const Auth = () => {
   const [showModal, setShowModal] = useState(false);
