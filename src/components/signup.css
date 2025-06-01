@@ -11,6 +11,17 @@
     align-items: center;
     z-index: 1000;
 }
+@media(min-width:768px){.modal-overlay{
+width: 50%;
+font-size: 16px;
+}}
+@media(min-width:1024px){
+    .modal-overlay{
+        width: 33.33%;
+        font-size: 18px;
+    }
+}
+
 
 /* Modal container */
 .modal-content {
