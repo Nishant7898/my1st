@@ -11,7 +11,8 @@ const Signup = ({ isopen, isclose }) => {
         <form className="signup-form">
           <input type="text" placeholder="Full Name" />
           <input type="email" placeholder="Email Address" />
-          <input type="password" placeholder="Password" />
+          <input type="password" placeholder="New Password" />
+          <input type="text" placeholder="Confirm New Password" />
           <button type="submit">Submit</button>
         </form>
         <button className="close-btn" onClick={isclose}>

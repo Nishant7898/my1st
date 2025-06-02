@@ -12,7 +12,7 @@ const Auth = () => {
         <h1>Welcome to Our Page.....!</h1>
       </div>
         <div className="inputs">
-          <input id="username" type="text" placeholder="Username" />
+          <input id="username" type="text" placeholder="Emter Email" />
         </div>
         <input id="password" type="password" placeholder="Password" />
         <div className="buttons">
