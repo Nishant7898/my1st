@@ -2,22 +2,35 @@ import React, { useState } from "react";
 import "./login.css";
 import Signup from "./signup";
 
+
 const Auth = () => {
   const [showModal, setShowModal] = useState(false);
-  const handleLogin=(e)=>{
-    e.preventDefault();
-    if (validateform()){
-      const users=JSON.parse(localStorage.getItem("users")) || []
-      const matcheduser=users.find((user)=>user.username===username || (user.email===username && user.password===password))
-      if (matcheduser && matcheduser.password ===password){
-        alert("login successfull")
-      }
-      else{
-        alert("invalid credentials")
-      }
-    }
+const [Username, setUsername] = useState("")
+const [Password, setPassword] = useState("")
+const [Error, setError] = useState("")
+const validateform=()=>{
+  if(!Username || !Password){
+    setError("fill the all fields")
+    return false;
   }
-
+  setError("")
+  return true
+}
+const handlesign=(e)=>{
+  e.preventdefault()
+ if(validateform()){
+  const users=JSON.parse(localStorage.getItem("users")) ||[]
+  const matchedusers=users.find((user)=>
+    (user.email===Username && user.Username===Username) && user.Password===Password
+  )
+  if(matchedusers){
+    alert("login successfull")
+  }
+  else{
+    alert("invalid credentials")
+  }
+ }
+}
   return (
     <>
       <div className="container">
@@ -25,12 +38,13 @@ const Auth = () => {
         <h1>Welcome to Our Page.....!</h1>
       </div>
         <div className="inputs">
-          <input id="username" type="text" placeholder="Enter Email" />
+          <input id="username" type="text" placeholder="Enter Email" value={Username} onChange={(e)=>setUsername(e.target.value)} />
         </div>
-        <input id="password" type="password" placeholder="Password" />
+        <input id="password" type="password" placeholder="Password"  value={Password} onChange={(e)=>setPassword(e.target.value)}/>
+        {Error && <span> {Error}</span>}
         <div className="buttons">
           <div className="loginn">
-            <button>Login</button>
+            <button onClick={handlesign}>Login</button>
           </div>
           <span>New user? Click here to sign up</span>
           <div className="signup">
