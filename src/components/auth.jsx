@@ -4,6 +4,19 @@ import Signup from "./signup";
 
 const Auth = () => {
   const [showModal, setShowModal] = useState(false);
+  const handleLogin=(e)=>{
+    e.preventDefault();
+    if (validateform()){
+      const users=JSON.parse(localStorage.getItem("users")) || []
+      const matcheduser=users.find((user)=>user.username===username || (user.email===username && user.password===password))
+      if (matcheduser && matcheduser.password ===password){
+        alert("login successfull")
+      }
+      else{
+        alert("invalid credentials")
+      }
+    }
+  }
 
   return (
     <>
@@ -12,7 +25,7 @@ const Auth = () => {
         <h1>Welcome to Our Page.....!</h1>
       </div>
         <div className="inputs">
-          <input id="username" type="text" placeholder="Emter Email" />
+          <input id="username" type="text" placeholder="Enter Email" />
         </div>
         <input id="password" type="password" placeholder="Password" />
         <div className="buttons">
