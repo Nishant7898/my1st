@@ -46,7 +46,7 @@ const handlesign=(e)=>{
           <div className="loginn">
             <button onClick={handlesign}>Login</button>
           </div>
-          <span>New user? Click here to sign up</span>
+          <span id="texts">New user? Click here to sign up</span>
           <div className="signup">
             <button onClick={() => setShowModal(true)}>Signup</button>
           </div>
